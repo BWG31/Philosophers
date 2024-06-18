@@ -33,6 +33,11 @@ CC		=	gcc
 CFLAGS	=	-Wall -Werror -Wextra -g
 RM		=	rm -f
 
+ifeq ($(shell uname), Linux)
+	CFLAGS += -pthread
+endif
+
+
 all:		$(NAME)
 
 $(NAME):	$(OBJ_DIR) $(OBJS)

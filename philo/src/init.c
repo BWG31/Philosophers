@@ -23,19 +23,15 @@ int	init_simulation(t_monitor *monitor, int argc, char **argv)
 
 int	init_monitor(t_monitor *monitor, int argc, char **argv)
 {
-	monitor->thread = NULL;
+	memset(monitor, 0, sizeof(t_monitor));
 	monitor->seats = ft_atoi(argv[1]);
 	monitor->time.to_die = ft_atoi(argv[2]);
 	monitor->time.to_eat = ft_atoi(argv[3]);
 	monitor->time.to_sleep = ft_atoi(argv[4]);
 	if (argc == 6)
 		monitor->times_to_eat = ft_atoi(argv[5]);
-	else
-		monitor->times_to_eat = 0;
-	monitor->end_flag.value = FALSE;
 	pthread_mutex_init(&monitor->end_flag.mutex, NULL);
 	pthread_mutex_init(&monitor->print_mutex, NULL);
-	monitor->philo = NULL;
 	return (0);
 }
 

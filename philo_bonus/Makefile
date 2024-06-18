@@ -34,7 +34,12 @@ CC		=	gcc
 CFLAGS	=	-Wall -Werror -Wextra -g
 RM		=	rm -f
 
+ifeq ($(shell uname), Linux)
+	CFLAGS += -pthread
+endif
+
 all:		$(NAME)
+			@echo "Successfully compiled executable: $(NAME)"
 
 $(NAME):	$(OBJ_DIR) $(OBJS)
 			@$(CC) $(CFLAGS) $(OBJS) -o $@

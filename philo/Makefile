@@ -6,7 +6,7 @@
 #    By: bgolding <bgolding@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/01 13:22:45 by bgolding          #+#    #+#              #
-#    Updated: 2024/02/22 10:54:31 by bgolding         ###   ########.fr        #
+#    Updated: 2024/06/18 13:12:41 by bgolding         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,9 +39,10 @@ endif
 
 
 all:		$(NAME)
+		@echo "Successfully compiled executable: $(NAME)"
 
 $(NAME):	$(OBJ_DIR) $(OBJS)
-			$(CC) $(CFLAGS) $(OBJS) -o $@
+			@$(CC) $(CFLAGS) $(OBJS) -o $@
 
 $(OBJ_DIR):
 			@mkdir -p $@
